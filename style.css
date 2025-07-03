@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    /* Use CSS variables for gradient stops */
+    --color1: #f6d365;
+    --color2: #fda085;
+    --color3: #a1c4fd;
+    --color4: #c2e9fb;
+    --color5: #fbc2eb;
+    --color6: #a6c1ee;
+    background: linear-gradient(120deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6));
+    background-size: 400% 400%;
+    animation: gradientBG 16s linear infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background 1s;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+}
+
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 120px;
+    padding: 16px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    background: rgba(255,255,255,0.85);
+    outline: none;
+    transition: box-shadow 0.3s, background 0.3s;
+    margin-bottom: 12px;
+}
+
+textarea:focus {
+    box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    background: rgba(255,255,255,0.95);
+}
+
+.counter {
+    margin-top: 10px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 18px 32px;
+    display: inline-block;
+    min-width: 320px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.counter p {
+    margin: 8px 0;
+    color: #333;
+    font-weight: 500;
+}
+
+#totalCount, #remainingCount {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f76d6d;
+    text-shadow: 0 1px 4px rgba(255,255,255,0.3);
+}
+
+#limitMessage {
+    color: #d7263d;
+    font-weight: bold;
+    display: none;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 4px rgba(255,255,255,0.2);
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #fda085;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+    .counter {
+        min-width: 0;
+        padding: 12px 8px;
+        font-size: 1rem;
+    }
+    textarea {
+        max-width: 95vw;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}

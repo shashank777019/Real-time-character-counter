@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Character Counter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Real-time Character Counter</h1>
+    <textarea id="textArea" placeholder="Type your text here..."></textarea>
+    <div class="counter">
+        <p>Total Characters: <span id="totalCount">0</span></p>
+        <p>Remaining Characters: <span id="remainingCount">50</span></p>
+        <p id="limitMessage">Word limit is exceeded</p>
+    </div>
+
+    <script>
+        const textArea = document.getElementById('textArea');
+        const totalCount = document.getElementById('totalCount');
+        const remainingCount = document.getElementById('remainingCount');
+        const maxChars = 50;
+
+        let lastValue = '';
+        textArea.addEventListener('input', (e) => {
+            let text = textArea.value;
+            const nonSpaceChars = text.replace(/\s/g, '');
+            let currentTotal = nonSpaceChars.length;
+            let currentRemaining = maxChars - currentTotal;
+            const limitMessage = document.getElementById('limitMessage');
+
+            if (currentTotal > maxChars) {
+                // Revert to last valid value
+                textArea.value = lastValue;
+                limitMessage.style.display = 'block';
+                return;
+            } else {
+                limitMessage.style.display = 'none';
+                lastValue = text;
+            }
+
+            totalCount.textContent = currentTotal;
+            remainingCount.textContent = currentRemaining >= 0 ? currentRemaining : 0;
+        });
+    </script>
+
+</body>
+</html>

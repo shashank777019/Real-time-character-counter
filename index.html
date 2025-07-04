@@ -31,7 +31,6 @@
             const limitMessage = document.getElementById('limitMessage');
 
             if (currentTotal > maxChars) {
-                // Revert to last valid value
                 textArea.value = lastValue;
                 limitMessage.style.display = 'block';
                 return;

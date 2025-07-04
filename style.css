@@ -2,7 +2,6 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
-    /* Use CSS variables for gradient stops */
     --color1: #f6d365;
     --color2: #fda085;
     --color3: #a1c4fd;
